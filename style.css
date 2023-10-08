@@ -79,12 +79,15 @@ body * {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-
+  animation: slide-in-dark-mode 0.3s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in-light-mode 0.3s forwards; /*forwards mantem a propriedade da animação no final*/
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color);
 }
 #switch span {
   display: block;
@@ -174,5 +177,23 @@ text-align: center;
 
   .light {
     --bg-url: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/* animation*/
+@keyframes slide-in-light-mode {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-in-dark-mode {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
   }
 }
